@@ -14,76 +14,77 @@ public class CalibrationValues: AdventOfCodeBase
         }
         Console.Out.WriteLine("Total Calibration Values: " + totalCalibrationValues);
     }
+
     private string GetCalibrationValue(string s)
     {
         int firstNumber = -1;
         int lastNumber = -1;
-        string[] numbers = new[] { "one", "two", "three", "four", "five", "six", "seven", "eight", "nine" };
         string previous = "";
 
-        foreach (char c in s.ToList())
+        List<char> chars = s.ToList();
+
+        foreach (var currentChar in chars)
         {
-            //Console.Out.WriteLine(previous);
-            if (char.IsLetter(c))
+            if (char.IsLetter(currentChar))
             {
-                previous += c;
-                for (var i = 0; i < numbers.Length; i++)
-                {
-                    if (previous.Contains(numbers[i]))
-                    {
-                        firstNumber = i + 1;
-                        break;
-                    }
-                }
-                if (firstNumber != -1)
+                previous += currentChar;
+                if (CheckNumberInNumbersList(previous, out firstNumber))
                 {
                     break;
                 }
-            }
-            else
+            }else
             {
                 previous = "";
             }
-            if (char.IsNumber(c))
+            if (char.IsNumber(currentChar))
             {
-                firstNumber = int.Parse(c.ToString());
+                firstNumber = int.Parse(currentChar.ToString());
                 break;
             }
+
         }
         previous = "";
-        for (var i = s.ToList().Count - 1; i >= 0; i--)
+        chars.Reverse();
+        foreach (char currentChar in chars)
         {
-            char c = s[i];
-            if (char.IsLetter(c))
+            if (char.IsLetter(currentChar))
             {
-                previous += c;
+                previous += currentChar;
                 var reversed = new string(previous.Reverse().ToArray());
-                for (var j = 0; j < numbers.Length; j++)
-                {
-                    if (reversed.Contains(numbers[j]))
-                    {
-                        lastNumber = j + 1;
-                        break;
-                    }
-                }
-                if (lastNumber != -1)
+                if (CheckNumberInNumbersList(reversed, out lastNumber))
                 {
                     break;
                 }
-            }
-            else
+            }else
             {
                 previous = "";
             }
-            if (char.IsNumber(s[i]))
+            if (char.IsNumber(currentChar))
             {
-                lastNumber = int.Parse(s[i].ToString());
+                lastNumber = int.Parse(currentChar.ToString());
                 break;
             }
         }
-        Console.Out.WriteLine("First Number: " + firstNumber + " Last Number: " + lastNumber);
         return firstNumber + "" + lastNumber;
     }
 
+
+    private bool CheckNumberInNumbersList(string s, out int num)
+    {
+        string[] numbers = { "one", "two", "three", "four", "five", "six", "seven", "eight", "nine" };
+
+        for (var i = 0; i < numbers.Length; i++)
+        {
+            var number = numbers[i];
+            if (s.Contains(number))
+            {
+                num = i + 1;
+                return true;
+            }
+        }
+        num = -1;
+        return false;
+
+    }
 
 }
