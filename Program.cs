@@ -17,5 +17,5 @@ Console.WriteLine("Hello, Advent of Code");
 // new GearRatios().FindGearRatiosByMultiplyGearParts();
 
 // Day 04
-//new Scratchcards().AddWinningNumbers();
-new Scratchcards().AddScratchcards();
+// new Scratchcards().AddWinningNumbers();
+// new Scratchcards().AddScratchcards();

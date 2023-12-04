@@ -68,41 +68,9 @@ public class Scratchcards : AdventOfCodeBase
     public void AddWinningNumbers()
     {
         var addedResult = 0;
-        foreach (var line in Input)
+        for (var i = 0; i < Input.Count; i++)
         {
-
-            var cardNumberAndNumbers = line.Split(": ");
-
-            var winningNumbersAndOwningCardNumbers = cardNumberAndNumbers[1].Split(" | ");
-
-            var winningNumbers = winningNumbersAndOwningCardNumbers[0].Split(" ");
-            var owningCardNumbers = winningNumbersAndOwningCardNumbers[1].Split(" ");
-
-            HashSet<string> winningNumbersSet = new HashSet<string>();
-            foreach (var winningNumber in winningNumbers)
-            {
-                if (winningNumber.Trim().Length == 0)
-                    continue;
-                winningNumbersSet.Add(winningNumber.Trim());
-            }
-
-            /*
-            foreach (var s in winningNumbersSet)
-            {
-                Console.Out.WriteLine(s);
-            }*/
-
-            var countMyWinningNumbers = 0;
-
-            foreach (var owningCardNumber in owningCardNumbers)
-            {
-                if (winningNumbersSet.Contains(owningCardNumber.Trim()))
-                {
-                    countMyWinningNumbers++;
-                    //Console.Out.WriteLine("Card " + cardNumberAndNumbers[0] + " has " + owningCardNumber.Trim() + " as a winning number.");
-                }
-            }
-
+            CheckCardForMatchingNumbers(i, out int countMyWinningNumbers);
 
             var result = Math.Pow(2, countMyWinningNumbers - 1);
 
