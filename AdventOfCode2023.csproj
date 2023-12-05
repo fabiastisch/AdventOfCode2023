@@ -12,6 +12,8 @@
       <None Update="Day*\input">
         <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       </None>
+
+
     </ItemGroup>
 
 
