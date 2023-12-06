@@ -4,6 +4,7 @@ using AdventOfCode2023.Day02;
 using AdventOfCode2023.Day03;
 using AdventOfCode2023.Day04;
 using AdventOfCode2023.Day05;
+using AdventOfCode2023.Day06;
 
 Console.WriteLine("Hello, Advent of Code");
 
@@ -22,4 +23,10 @@ Console.WriteLine("Hello, Advent of Code");
 // new Scratchcards().AddScratchcards();
 
 // Day 05
-new SeedAndFertilizer().CalculateLowestLocationNumber();
+//new SeedAndFertilizer().CalculateLowestLocationNumber();
+
+//new SeedAndFertilizerRefactored().Solve();
+
+// Day 06
+new WaitForIt().SolveFirst();
+new WaitForIt().SolveTwo();
