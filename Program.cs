@@ -5,6 +5,7 @@ using AdventOfCode2023.Day03;
 using AdventOfCode2023.Day04;
 using AdventOfCode2023.Day05;
 using AdventOfCode2023.Day06;
+using AdventOfCode2023.Day07;
 
 Console.WriteLine("Hello, Advent of Code");
 
@@ -28,5 +29,9 @@ Console.WriteLine("Hello, Advent of Code");
 //new SeedAndFertilizerRefactored().Solve();
 
 // Day 06
-new WaitForIt().SolveFirst();
-new WaitForIt().SolveTwo();
+// new WaitForIt().SolveFirst();
+// new WaitForIt().SolveTwo();
+
+// Day 07
+new CamelCards().SolvePartOne();
+
