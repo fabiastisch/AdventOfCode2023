@@ -17,7 +17,8 @@ public class MirageMaintenance : AdventOfCodeBase
 
             }
 
-            var val = FindNextValue(pyramid, 1);
+            //var val = FindNextValue(pyramid, 1);
+            var val = FindPreviousValue(pyramid, 0);
 
             Console.Out.WriteLine("Next Value: " + val);
 
@@ -37,6 +38,14 @@ public class MirageMaintenance : AdventOfCodeBase
         return BuildPyramid(pyramid);
     }
 
+    private int FindPreviousValue(List<List<int>> pyramid, int index)
+    {
+        if (index >= pyramid.Count)
+        {
+            return 0;
+        }
+        return pyramid[index].First() - FindPreviousValue(pyramid, index +1);
+    }
     private int FindNextValue(List<List<int>> pyramid, int index)
     {
         //Console.Out.WriteLine("Index: " + index);
