@@ -8,6 +8,7 @@ using AdventOfCode2023.Day06;
 using AdventOfCode2023.Day07;
 using AdventOfCode2023.Day08;
 using AdventOfCode2023.Day09;
+using AdventOfCode2023.Day10;
 
 Console.WriteLine("Hello, Advent of Code");
 
@@ -41,4 +42,7 @@ Console.WriteLine("Hello, Advent of Code");
 //new HauntedWasteland().SolvePartOne();
 
 // Day 09
-new MirageMaintenance().SolvePartOne();
+//new MirageMaintenance().SolvePartOne();
+
+// Day 10
+new PipeMaze().SolvePartOne();
