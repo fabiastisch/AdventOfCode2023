@@ -42,7 +42,7 @@ public class CosmicExpansion: AdventOfCodeBase
             }
         }
 
-        int sum = 0;
+        long sum = 0;
 
         HashSet<int> completedGalaxies = new();
 
@@ -58,10 +58,10 @@ public class CosmicExpansion: AdventOfCodeBase
                 var other = galaxies[j];
 
                 var xDiff = Math.Abs(current.x - other.x);
-                var xDiffReal = xDiff + columnsWithoutGalaxy.Count(v => v > Math.Min(current.y, other.y) && v < Math.Max(current.y, other.y));
+                var xDiffReal = xDiff + /*Part2*/(1000000-1)*/*EndPart2*/ columnsWithoutGalaxy.Count(v => v > Math.Min(current.y, other.y) && v < Math.Max(current.y, other.y));
 
                 var yDiff = Math.Abs(current.y - other.y);
-                var yDiffReal = yDiff + rowsWithoutGalaxy.Count(v => v > Math.Min(current.x, other.x) && v < Math.Max(current.x, other.x));
+                var yDiffReal = yDiff + /*Part2*/(1000000-1)*/*EndPart2*/  rowsWithoutGalaxy.Count(v => v > Math.Min(current.x, other.x) && v < Math.Max(current.x, other.x));
 
                 var distance = xDiffReal + yDiffReal;
 
